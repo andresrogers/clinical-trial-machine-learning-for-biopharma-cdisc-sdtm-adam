@@ -1,0 +1,42 @@
+layer,asset,path,notes
+raw_external,adae.xpt,data/external/cdisc_pilot/raw_xpt/adae.xpt,immutable source
+raw_external,adlbc.xpt,data/external/cdisc_pilot/raw_xpt/adlbc.xpt,immutable source
+raw_external,adlbh.xpt,data/external/cdisc_pilot/raw_xpt/adlbh.xpt,immutable source
+raw_external,adsl.xpt,data/external/cdisc_pilot/raw_xpt/adsl.xpt,immutable source
+raw_external,adtte.xpt,data/external/cdisc_pilot/raw_xpt/adtte.xpt,immutable source
+raw_external,advs.xpt,data/external/cdisc_pilot/raw_xpt/advs.xpt,immutable source
+raw_external,ae.xpt,data/external/cdisc_pilot/raw_xpt/ae.xpt,immutable source
+raw_external,dm.xpt,data/external/cdisc_pilot/raw_xpt/dm.xpt,immutable source
+raw_external,ds.xpt,data/external/cdisc_pilot/raw_xpt/ds.xpt,immutable source
+raw_external,ex.xpt,data/external/cdisc_pilot/raw_xpt/ex.xpt,immutable source
+raw_external,lb.xpt,data/external/cdisc_pilot/raw_xpt/lb.xpt,immutable source
+raw_external,vs.xpt,data/external/cdisc_pilot/raw_xpt/vs.xpt,immutable source
+interim,adae.parquet,data/interim/cdisc_pilot/adae.parquet,normalized parquet
+interim,adlbc.parquet,data/interim/cdisc_pilot/adlbc.parquet,normalized parquet
+interim,adlbh.parquet,data/interim/cdisc_pilot/adlbh.parquet,normalized parquet
+interim,adsl.parquet,data/interim/cdisc_pilot/adsl.parquet,normalized parquet
+interim,adtte.parquet,data/interim/cdisc_pilot/adtte.parquet,normalized parquet
+interim,advs.parquet,data/interim/cdisc_pilot/advs.parquet,normalized parquet
+interim,ae.parquet,data/interim/cdisc_pilot/ae.parquet,normalized parquet
+interim,dm.parquet,data/interim/cdisc_pilot/dm.parquet,normalized parquet
+interim,ds.parquet,data/interim/cdisc_pilot/ds.parquet,normalized parquet
+interim,ex.parquet,data/interim/cdisc_pilot/ex.parquet,normalized parquet
+interim,lb.parquet,data/interim/cdisc_pilot/lb.parquet,normalized parquet
+interim,vs.parquet,data/interim/cdisc_pilot/vs.parquet,normalized parquet
+harmonized,ae.parquet,data/derived/sdtm_alz/ae.parquet,sdtm-like harmonized
+harmonized,dm.parquet,data/derived/sdtm_alz/dm.parquet,sdtm-like harmonized
+harmonized,ds.parquet,data/derived/sdtm_alz/ds.parquet,sdtm-like harmonized
+harmonized,ex.parquet,data/derived/sdtm_alz/ex.parquet,sdtm-like harmonized
+harmonized,lb.parquet,data/derived/sdtm_alz/lb.parquet,sdtm-like harmonized
+harmonized,vs.parquet,data/derived/sdtm_alz/vs.parquet,sdtm-like harmonized
+synthetic_bridge,efficacy_long.parquet,data/generated/alz_program/efficacy_long.parquet,public continuity bridge
+synthetic_bridge,event_outcomes.parquet,data/generated/alz_program/event_outcomes.parquet,public continuity bridge
+synthetic_bridge,phase_assignments.parquet,data/generated/alz_program/phase_assignments.parquet,public continuity bridge
+synthetic_bridge,subject_master.parquet,data/generated/alz_program/subject_master.parquet,public continuity bridge
+synthetic_bridge,visit_schedule.parquet,data/generated/alz_program/visit_schedule.parquet,public continuity bridge
+derived_adam_like,adae.parquet,data/derived/adam_like/alz_program/adae.parquet,analysis-ready outputs
+derived_adam_like,adeff.parquet,data/derived/adam_like/alz_program/adeff.parquet,analysis-ready outputs
+derived_adam_like,adlb.parquet,data/derived/adam_like/alz_program/adlb.parquet,analysis-ready outputs
+derived_adam_like,adsl.parquet,data/derived/adam_like/alz_program/adsl.parquet,analysis-ready outputs
+derived_adam_like,adtte.parquet,data/derived/adam_like/alz_program/adtte.parquet,analysis-ready outputs
+derived_adam_like,advs.parquet,data/derived/adam_like/alz_program/advs.parquet,analysis-ready outputs

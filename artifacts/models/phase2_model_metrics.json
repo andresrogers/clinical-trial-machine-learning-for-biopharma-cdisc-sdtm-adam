@@ -1,0 +1,17 @@
+{
+  "threshold": 0.49486759833336047,
+  "roc_auc": 0.8679435483870968,
+  "pr_auc": 0.8445948674535199,
+  "brier": 0.14488192162648167,
+  "sensitivity": 0.8064516129032258,
+  "specificity": 0.75,
+  "ppv": 0.7575757575757576,
+  "npv": 0.8,
+  "f1": 0.78125,
+  "n_test": 63,
+  "responder_diff_pp": 19.073,
+  "gate_decision": "GO",
+  "primary_model": "logistic_regression",
+  "primary_endpoint_pvalue": 0.0019,
+  "threshold_rationale": "Training ROC threshold maximizing specificity with sensitivity >= 0.78"
+}

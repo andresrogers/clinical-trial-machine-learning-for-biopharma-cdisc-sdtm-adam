@@ -1,0 +1,6 @@
+{
+  "generated_at": "2026-04-17T01:18:43.823659+00:00",
+  "cdisc_pilot_interim_files": 12,
+  "safetydata_interim_files": 32,
+  "row_count_table": "artifacts/qc/ingestion_row_counts.csv"
+}

@@ -1,0 +1,47 @@
+version: 1
+layer: raw_interim
+datasets:
+  dm:
+    required_columns: [STUDYID, USUBJID, AGE, SEX, ARM]
+    non_null_columns: [STUDYID, USUBJID]
+    unique_key: [USUBJID]
+    ranges:
+      AGE: {min: 0, max: 120}
+  ae:
+    required_columns: [STUDYID, USUBJID, AETERM]
+    non_null_columns: [STUDYID, USUBJID]
+  lb:
+    required_columns: [STUDYID, USUBJID, LBTESTCD, LBSTRESN]
+    non_null_columns: [STUDYID, USUBJID]
+  vs:
+    required_columns: [STUDYID, USUBJID, VSTESTCD, VSSTRESN]
+    non_null_columns: [STUDYID, USUBJID]
+  ex:
+    required_columns: [STUDYID, USUBJID, EXTRT]
+    non_null_columns: [STUDYID, USUBJID]
+  ds:
+    required_columns: [STUDYID, USUBJID, DSDECOD]
+    non_null_columns: [STUDYID, USUBJID]
+  adsl:
+    required_columns: [STUDYID, USUBJID, TRT01A, SAFFL]
+    non_null_columns: [STUDYID, USUBJID]
+    unique_key: [USUBJID]
+    allowed_values:
+      SAFFL: [Y, N]
+  adae:
+    required_columns: [STUDYID, USUBJID, TRTA]
+    non_null_columns: [STUDYID, USUBJID]
+  adlbc:
+    required_columns: [STUDYID, USUBJID, PARAMCD]
+    non_null_columns: [STUDYID, USUBJID]
+  adlbh:
+    required_columns: [STUDYID, USUBJID, PARAMCD]
+    non_null_columns: [STUDYID, USUBJID]
+  adtte:
+    required_columns: [STUDYID, USUBJID, PARAMCD, AVAL]
+    non_null_columns: [STUDYID, USUBJID]
+    ranges:
+      AVAL: {min: 0}
+  advs:
+    required_columns: [STUDYID, USUBJID, PARAMCD, AVAL]
+    non_null_columns: [STUDYID, USUBJID]

@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-04-17T01:22:51.654095+00:00",
+  "validated_layer": "raw_interim",
+  "total_datasets": 12,
+  "passes": 12,
+  "failures": 0,
+  "results": [
+    {
+      "dataset": "dm",
+      "path": "data/interim/cdisc_pilot/dm.parquet",
+      "rows": 306,
+      "status": "pass"
+    },
+    {
+      "dataset": "ae",
+      "path": "data/interim/cdisc_pilot/ae.parquet",
+      "rows": 1191,
+      "status": "pass"
+    },
+    {
+      "dataset": "lb",
+      "path": "data/interim/cdisc_pilot/lb.parquet",
+      "rows": 59580,
+      "status": "pass"
+    },
+    {
+      "dataset": "vs",
+      "path": "data/interim/cdisc_pilot/vs.parquet",
+      "rows": 29643,
+      "status": "pass"
+    },
+    {
+      "dataset": "ex",
+      "path": "data/interim/cdisc_pilot/ex.parquet",
+      "rows": 591,
+      "status": "pass"
+    },
+    {
+      "dataset": "ds",
+      "path": "data/interim/cdisc_pilot/ds.parquet",
+      "rows": 596,
+      "status": "pass"
+    },
+    {
+      "dataset": "adsl",
+      "path": "data/interim/cdisc_pilot/adsl.parquet",
+      "rows": 254,
+      "status": "pass"
+    },
+    {
+      "dataset": "adae",
+      "path": "data/interim/cdisc_pilot/adae.parquet",
+      "rows": 1191,
+      "status": "pass"
+    },
+    {
+      "dataset": "adlbc",
+      "path": "data/interim/cdisc_pilot/adlbc.parquet",
+      "rows": 74264,
+      "status": "pass"
+    },
+    {
+      "dataset": "adlbh",
+      "path": "data/interim/cdisc_pilot/adlbh.parquet",
+      "rows": 49932,
+      "status": "pass"
+    },
+    {
+      "dataset": "adtte",
+      "path": "data/interim/cdisc_pilot/adtte.parquet",
+      "rows": 254,
+      "status": "pass"
+    },
+    {
+      "dataset": "advs",
+      "path": "data/interim/cdisc_pilot/advs.parquet",
+      "rows": 32139,
+      "status": "pass"
+    }
+  ],
+  "errors": []
+}

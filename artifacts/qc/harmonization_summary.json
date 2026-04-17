@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-04-17T02:16:12.238419+00:00",
+  "domains": [
+    {
+      "domain": "dm",
+      "input_rows": 306,
+      "output_rows": 306,
+      "row_delta": 0
+    },
+    {
+      "domain": "ae",
+      "input_rows": 1191,
+      "output_rows": 1191,
+      "row_delta": 0
+    },
+    {
+      "domain": "lb",
+      "input_rows": 59580,
+      "output_rows": 59580,
+      "row_delta": 0
+    },
+    {
+      "domain": "vs",
+      "input_rows": 29643,
+      "output_rows": 29643,
+      "row_delta": 0
+    },
+    {
+      "domain": "ex",
+      "input_rows": 591,
+      "output_rows": 591,
+      "row_delta": 0
+    },
+    {
+      "domain": "ds",
+      "input_rows": 596,
+      "output_rows": 596,
+      "row_delta": 0
+    }
+  ]
+}

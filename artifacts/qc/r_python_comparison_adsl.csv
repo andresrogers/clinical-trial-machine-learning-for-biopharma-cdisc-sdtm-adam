@@ -1,0 +1,2 @@
+dataset,python_path,r_path,python_rows,r_rows,row_diff
+adsl,data/derived/adam_like/alz_program/adsl.parquet,artifacts/qc/adsl_r_reference.parquet,306,306,0
