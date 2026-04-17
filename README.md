@@ -23,18 +23,17 @@
 ## Open the portfolio reports
 
 ### Main report
-- **[Final executive HTML report](docs/final_report/index.html)**
+- **[Final executive HTML report]([docs/final_report/index.html](https://andresrogers.github.io/clinical-trial-machine-learning-for-biopharma-cdisc-sdtm-adam/final_report/index.html))**
 
 ### Phase reports
-- [Phase I safety review](docs/phase1/index.html)
-- [Phase II endpoint and interpretable ML review](docs/phase2/index.html)
-- [Phase III confirmatory review](docs/phase3/index.html)
+- [Phase I safety review]([docs/phase1/index.html](https://andresrogers.github.io/clinical-trial-machine-learning-for-biopharma-cdisc-sdtm-adam/phase1/index.html))
+- [Phase II endpoint and interpretable ML review]([docs/phase2/index.html](https://andresrogers.github.io/clinical-trial-machine-learning-for-biopharma-cdisc-sdtm-adam/phase2/index.html))
+- [Phase III confirmatory review]([docs/phase3/index.html](https://andresrogers.github.io/clinical-trial-machine-learning-for-biopharma-cdisc-sdtm-adam/phase3/index.html))
 
 ### Supporting pages
-- [Portfolio landing page](docs/index.html)
-- [Program overview](docs/program_overview/index.html)
-- [Data lineage page](docs/data_lineage/index.html)
-- [Model card page](docs/model_cards/index.html)
+- [Program overview]([docs/program_overview/index.html](https://andresrogers.github.io/clinical-trial-machine-learning-for-biopharma-cdisc-sdtm-adam/program_overview/index.html))
+- [Data lineage page]([docs/data_lineage/index.html](https://andresrogers.github.io/clinical-trial-machine-learning-for-biopharma-cdisc-sdtm-adam/data_lineage/index.html))
+- [Model card page]([docs/model_cards/index.html](https://andresrogers.github.io/clinical-trial-machine-learning-for-biopharma-cdisc-sdtm-adam/model_cards/index.html))
 
 ## What this repository shows
 
