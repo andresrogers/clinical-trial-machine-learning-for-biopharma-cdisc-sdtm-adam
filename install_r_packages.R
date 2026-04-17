@@ -1,8 +1,16 @@
+local_lib <- file.path(getwd(), ".r_libs")
+dir.create(local_lib, recursive = TRUE, showWarnings = FALSE)
+local_lib <- normalizePath(local_lib, winslash = "/", mustWork = TRUE)
+
+.libPaths(c(local_lib, .libPaths()))
+Sys.setenv(R_LIBS_USER = local_lib)
+
+message("Using local R library: ", local_lib)
+
 required_cran <- c(
-  "pak",
+  "arrow",
   "jsonlite",
   "yaml",
-  "arrow",
   "dplyr",
   "readr",
   "tidyr",
@@ -10,34 +18,25 @@ required_cran <- c(
   "purrr",
   "ggplot2",
   "survival",
-  "gt",
-  "gtsummary",
-  "targets",
-  "reticulate",
-  "rmarkdown"
+  "reticulate"
 )
 
-install_if_missing <- function(pkgs) {
-  missing <- pkgs[!vapply(pkgs, requireNamespace, logical(1), quietly = TRUE)]
-  if (length(missing) > 0) install.packages(missing, repos = "https://cloud.r-project.org")
+is_installed_in_lib <- function(pkg, lib) {
+  suppressWarnings(requireNamespace(pkg, quietly = TRUE, lib.loc = lib))
 }
 
-install_if_missing(required_cran)
-
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages("pak", repos = "https://cloud.r-project.org")
+install_if_missing <- function(pkgs, lib = local_lib) {
+  missing <- pkgs[!vapply(pkgs, is_installed_in_lib, logical(1), lib = lib)]
+  if (length(missing) > 0) {
+    install.packages(
+      missing,
+      repos = "https://cloud.r-project.org",
+      lib = lib,
+      dependencies = c("Depends", "Imports")
+    )
+  }
 }
 
-# Prefer GitHub for the thin hybrid standards layer because package availability can vary.
-github_pkgs <- c(
-  "pharmaverse/admiral",
-  "pharmaverse/sdtm.oak",
-  "atorus-research/metacore",
-  "atorus-research/xportr"
-)
+install_if_missing(required_cran, lib = local_lib)
 
-try({
-  pak::pkg_install(github_pkgs)
-}, silent = TRUE)
-
-message("R package setup attempted. Review any package-specific install messages.")
+message("Minimal local R package setup completed.")
