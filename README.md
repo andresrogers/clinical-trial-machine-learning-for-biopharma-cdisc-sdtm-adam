@@ -1,4 +1,4 @@
-# Clinical Development Portfolio — NTX-101 / NTX-101
+# Clinical Development Portfolio — NTX-101
 
 > Python-first sponsor-style clinical data science portfolio simulating an Alzheimer’s development program from **Phase I to Phase III** using **CDISC-shaped public structure**, a **bounded synthetic continuity bridge**, **ADaM-like derivations**, **formal treatment comparisons**, **interpretable ML benchmarking**, and **static executive reporting**.
 
