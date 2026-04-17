@@ -1,0 +1,7 @@
+source_file,interim_file,harmonized_file
+dm.xpt,data/interim/cdisc_pilot/dm.parquet,data/derived/sdtm_alz/dm.parquet
+ae.xpt,data/interim/cdisc_pilot/ae.parquet,data/derived/sdtm_alz/ae.parquet
+lb.xpt,data/interim/cdisc_pilot/lb.parquet,data/derived/sdtm_alz/lb.parquet
+vs.xpt,data/interim/cdisc_pilot/vs.parquet,data/derived/sdtm_alz/vs.parquet
+ex.xpt,data/interim/cdisc_pilot/ex.parquet,data/derived/sdtm_alz/ex.parquet
+ds.xpt,data/interim/cdisc_pilot/ds.parquet,data/derived/sdtm_alz/ds.parquet

@@ -1,0 +1,150 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Model Review — NTX-101</title>
+    <style>
+      :root {
+        --ink: #18324a;
+        --muted: #5b6b7d;
+        --accent: #0a7f62;
+        --accent-2: #1f4e79;
+        --bg: #f5f8fb;
+        --card: #ffffff;
+        --border: #d9e2ec;
+        --hero-a: #11324d;
+        --hero-b: #1d567f;
+        --hero-c: #1a7d6a;
+      }
+      body { font-family: Arial, sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+      .page-wrap { max-width: 1180px; margin: 0 auto; padding: 28px; }
+      .hero { background: linear-gradient(135deg, var(--hero-a), var(--hero-b) 62%, var(--hero-c)); color: white; padding: 30px 32px; border-radius: 18px; box-shadow: 0 10px 28px rgba(17, 50, 77, 0.18); }
+      .hero .kicker { display: inline-block; margin-bottom: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.74rem; font-weight: 700; opacity: 0.88; }
+      .hero h1 { margin: 0 0 10px; font-size: 2rem; }
+      .hero p { margin: 0; max-width: 900px; line-height: 1.55; }
+      .nav { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+      .nav a { color: white; text-decoration: none; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; font-size: 0.92rem; }
+      .section-title { margin: 28px 0 12px; font-size: 1.25rem; }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 6px 18px rgba(20, 38, 58, 0.05); margin-top: 16px; }
+      .card.compact { padding: 14px 16px; }
+      .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px; }
+      .metric-label { color: var(--muted); font-size: 0.88rem; }
+      .metric-value { margin-top: 8px; font-size: 1.25rem; font-weight: 700; }
+      table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; }
+      th, td { padding: 11px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; font-size: 0.93rem; }
+      th { background: #edf3f9; }
+      img { max-width: 100%; border-radius: 12px; border: 1px solid var(--border); background: white; }
+      ul.clean { margin: 0; padding-left: 1.1rem; }
+      .badge { display: inline-block; padding: 5px 10px; border-radius: 999px; background: #e7f3ef; color: var(--accent); font-weight: 700; font-size: 0.82rem; }
+      .footer-note { margin-top: 26px; padding: 16px; border-left: 4px solid var(--accent); background: #f0f7f4; color: var(--ink); }
+      .muted { color: var(--muted); }
+      .pre-card { white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88rem; line-height: 1.45; }
+      .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+      .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+      .links-grid a { text-decoration: none; color: var(--accent-2); font-weight: bold; }
+      .body-content { margin-top: 20px; }
+      .grid { display: grid; gap: 16px; margin-top: 20px; }
+      .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+      .flow .box { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 14px; text-align: center; font-weight: bold; }
+      .metric-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+      .metric-table th { text-align: left; padding: 10px 12px; color: var(--muted); font-weight: 700; width: 40%; background: transparent; border-bottom: 1px solid var(--border); }
+      .metric-table td { padding: 10px 12px; text-align: left; font-weight: 700; border-bottom: 1px solid var(--border); }
+      .metric-table thead th { background: #f3f7fb; font-size: 0.95rem; color: var(--muted); }
+      .metric-table td .muted { font-weight: 400; color: var(--muted); }
+    </style>
+  </head>
+  <body class="">
+    <div class="page-wrap">
+      <section class="hero">
+        <div class="kicker">Analytical Model Review</div>
+        <h1>Model Review — NTX-101</h1>
+        <p>Primary and benchmark predictive model documentation supporting the Phase II responder analysis.</p>
+        <div class="nav">
+
+          <a href="../final_report/index.html">Integrated report</a>
+          
+          <a href="../program_overview/index.html">Program overview</a>
+          
+          <a href="../data_lineage/index.html">Data lineage</a>
+          
+          <a href="../model_cards/index.html">Model review</a>
+          
+          <a href="../phase1/index.html">Phase I</a>
+          
+          <a href="../phase2/index.html">Phase II</a>
+          
+          <a href="../phase3/index.html">Phase III</a>
+          
+        </div>
+      </section>
+      <div class="body-content">
+        
+  <div class="card">
+    <h2 class="section-title">Model Card — Phase II</h2>
+    <p class="muted">A concise, sponsor-style model card describing use, inputs, benchmarking, and performance metrics for the Phase II responder model.</p>
+    <h3 class="section-title">Use Case</h3>
+    <p>Predict Phase II Week 24 responder status for exploratory program gating support.</p>
+    <h3 class="section-title">Primary Model</h3>
+    <p><strong>logistic_regression</strong></p>
+    <h3 class="section-title">Inputs</h3>
+    <table>
+      <thead><tr><th>Type</th><th>Variables</th></tr></thead>
+      <tbody>
+        <tr><td>Numeric</td><td>age, baseline_cognitive_score, chg_week12, early_safety_discontinuation_before_week12</td></tr>
+        <tr><td>Categorical</td><td>sex, race, baseline_severity_group, treatment_arm</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">Exclusions / Leakage Controls</h3>
+    <ul class="clean">
+      <li>No post-Week-24 features used.</li>
+      <li>Outcome-defining fields at Week 24 excluded from predictors.</li>
+      <li>Training features documented explicitly in this card.</li>
+    </ul>
+    <h3 class="section-title">Benchmarking</h3>
+    <p>Conservative benchmark set includes logistic regression, elastic net, and random forest. Logistic regression remains primary for interpretability and sponsor-style transparency.</p>
+    <h3 class="section-title">Threshold Logic</h3>
+    <p>Primary classification threshold: <strong>0.495</strong></p>
+    <p class="muted">Threshold selected from the training ROC curve to preserve clinically useful sensitivity while improving specificity over the default 0.50 cutoff.</p>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">Primary Model Metrics</h3>
+    <table class="metric-table">
+      <tbody>
+        <tr><th>Threshold</th><td>0.4949</td></tr>
+        <tr><th>ROC AUC</th><td>0.868</td></tr>
+        <tr><th>PR AUC</th><td>0.845</td></tr>
+        <tr><th>Brier</th><td>0.145</td></tr>
+        <tr><th>Sensitivity</th><td>0.806</td></tr>
+        <tr><th>Specificity</th><td>0.75</td></tr>
+        <tr><th>PPV</th><td>0.758</td></tr>
+        <tr><th>NPV</th><td>0.800</td></tr>
+        <tr><th>F1</th><td>0.781</td></tr>
+        <tr><th>N (test)</th><td>63</td></tr>
+        <tr><th>Responder diff (pp)</th><td>19.073</td></tr>
+        <tr><th>Gate decision</th><td><span class="badge">GO</span></td></tr>
+        <tr><th>Primary endpoint p-value</th><td>0.0019</td></tr>
+        <tr><th>Threshold rationale</th><td><span class="muted">Training ROC threshold maximizing specificity with sensitivity ≥ 0.78</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 class="section-title">Limitations</h3>
+    <ul class="clean">
+      <li>Findings should be interpreted within the documented source-mix and continuity assumptions used for this integrated review.</li>
+      <li>Predictive performance may vary if endpoint prevalence or follow-up assumptions materially change.</li>
+    </ul>
+  </div>
+
+      </div>
+      <div class="footer-note">
+        <strong>Disclaimer:</strong> This review includes analyses derived from a combination of publicly available structural source data and documented synthetic continuity extensions for the fictional NTX-101 program. It is intended for internal methodological demonstration only and is not intended for external publication, regulatory submission, or treatment decision-making.
+      </div>
+    </div>
+  </body>
+</html>

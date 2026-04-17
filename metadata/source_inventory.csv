@@ -1,0 +1,11 @@
+source_name,path,format,classification,phase_fit,domain_coverage,disease_signal,use_in_repo,limitations
+cdisc_pilot_raw_xpt,data/external/cdisc_pilot/raw_xpt,xpt,core,cross_phase,"dm,ae,lb,vs,ex,ds,adsl,adae,adlbc,adlbh,adtte,advs","Indirect Alzheimer's relevance via linked CSR narrative context",Primary ingestion backbone for SDTM-like and ADaM-like structures,"Not a continuous single sponsor program across phase progression"
+cdisc_pilot_metadata_xml,data/external/cdisc_pilot/metadata/define.xml,xml,reference_only,cross_phase,metadata,none,Standards/variable reference context,"Not direct analysis data"
+cdisc_pilot_metadata_pdf,data/external/cdisc_pilot/metadata/define.pdf,pdf,reference_only,cross_phase,metadata,none,Standards documentation context,"Not machine-readable for direct analytics"
+cdisc_pilot_csr_pdf,data/external/cdisc_pilot/csr/cdiscpilot01.pdf,pdf,reference_only,cross_phase,clinical_study_report,"Contains clinical narrative context",Reference reading for clinical framing,"Not structured tabular input"
+cdisc_pilot_csr_narratives,data/external/cdisc_pilot/csr/narratives.txt,txt,reference_only,cross_phase,safety_narratives,"Explicit mentions of Alzheimer’s dementia and xanomeline low dose",Disease signal evidence anchor,"Narrative text only"
+safetydata_rda_bundle,data/external/safetydata,rda,supplemental,cross_phase,"sdtm_dm,sdtm_ae,sdtm_lb,sdtm_vs,sdtm_ex,sdtm_ds,adam_adsl,adam_adae,adam_adtte,adam_advs",none,Supplemental safety and standards-shaped datasets,"Different source lineage from CDISC pilot"
+clintrialdata_archive,data/external/clintrialdata/clinTrialData_0.1.3.tar.gz,tar.gz,reference_only,cross_phase,packaged_examples,none,Optional external packaged reference,"Archive not yet unpacked in this repo"
+pharmaverse_links,docs/reference/pharmaverse/links.txt,txt,reference_only,cross_phase,workflow_reference,none,Workflow and standards implementation references,"Documentation links only"
+regulatory_links,docs/reference/regulatory/links.txt,txt,reference_only,cross_phase,guidance_reference,none,Regulatory and standards references,"Documentation links only"
+download_archives,data/external/archives,zip,rejected,cross_phase,archives,none,Acquisition trace only,"Not a modeling or analysis input"

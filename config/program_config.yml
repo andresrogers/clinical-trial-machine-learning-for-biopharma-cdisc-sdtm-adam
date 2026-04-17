@@ -1,0 +1,31 @@
+program_id: NTX-101
+indication: mild_to_moderate_alzheimers_dementia
+molecule: NTX-101
+asset_type: fictional_investigational_asset
+asset_rationale: >-
+  NTX-101 is a fictional portfolio compound inspired by public source structure but not intended
+  to reproduce the exact historical profile of any real development asset.
+seed: 20260416
+
+raw_sources:
+  cdisc_pilot_xpt: data/external/cdisc_pilot/raw_xpt
+  cdisc_pilot_metadata: data/external/cdisc_pilot/metadata
+  cdisc_pilot_csr: data/external/cdisc_pilot/csr
+  safetydata_rda: data/external/safetydata
+  clintrialdata_archive: data/external/clintrialdata/clinTrialData_0.1.3.tar.gz
+
+working_directories:
+  interim: data/interim
+  generated: data/generated
+  derived: data/derived
+  artifacts: artifacts
+  docs: docs
+
+phase_studies:
+  phase_1: ALZ-XM-101
+  phase_2: ALZ-XM-201
+  phase_3: ALZ-XM-301
+
+portfolio_disclaimer: >-
+  This repository is a portfolio simulation built from public and synthetic data.
+  It is not sponsor production work, not GxP-validated, and not FDA submission-ready.

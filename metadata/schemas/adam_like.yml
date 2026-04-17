@@ -1,0 +1,40 @@
+version: 1
+layer: adam_like
+datasets:
+  adsl:
+    required_columns:
+      - program_subject_id
+      - source_usubjid
+      - trt01a
+      - ittfl
+      - saffl
+  adae:
+    required_columns:
+      - program_subject_id
+      - source_usubjid
+      - trt01a
+  adlb:
+    required_columns:
+      - program_subject_id
+      - source_usubjid
+      - paramcd
+      - aval
+  advs:
+    required_columns:
+      - program_subject_id
+      - source_usubjid
+      - paramcd
+      - aval
+  adeff:
+    required_columns:
+      - program_subject_id
+      - visit_week
+      - aval
+      - chg
+      - response_flag
+  adtte:
+    required_columns:
+      - program_subject_id
+      - aval
+      - cnsr
+      - event_desc

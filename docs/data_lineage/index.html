@@ -1,0 +1,381 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data Lineage — NTX-101</title>
+    <style>
+      :root {
+        --ink: #18324a;
+        --muted: #5b6b7d;
+        --accent: #0a7f62;
+        --accent-2: #1f4e79;
+        --bg: #f5f8fb;
+        --card: #ffffff;
+        --border: #d9e2ec;
+        --hero-a: #11324d;
+        --hero-b: #1d567f;
+        --hero-c: #1a7d6a;
+      }
+      body { font-family: Arial, sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+      .page-wrap { max-width: 1180px; margin: 0 auto; padding: 28px; }
+      .hero { background: linear-gradient(135deg, var(--hero-a), var(--hero-b) 62%, var(--hero-c)); color: white; padding: 30px 32px; border-radius: 18px; box-shadow: 0 10px 28px rgba(17, 50, 77, 0.18); }
+      .hero .kicker { display: inline-block; margin-bottom: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.74rem; font-weight: 700; opacity: 0.88; }
+      .hero h1 { margin: 0 0 10px; font-size: 2rem; }
+      .hero p { margin: 0; max-width: 900px; line-height: 1.55; }
+      .nav { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+      .nav a { color: white; text-decoration: none; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; font-size: 0.92rem; }
+      .section-title { margin: 28px 0 12px; font-size: 1.25rem; }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 6px 18px rgba(20, 38, 58, 0.05); margin-top: 16px; }
+      .card.compact { padding: 14px 16px; }
+      .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px; }
+      .metric-label { color: var(--muted); font-size: 0.88rem; }
+      .metric-value { margin-top: 8px; font-size: 1.25rem; font-weight: 700; }
+      table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; }
+      th, td { padding: 11px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; font-size: 0.93rem; }
+      th { background: #edf3f9; }
+      img { max-width: 100%; border-radius: 12px; border: 1px solid var(--border); background: white; }
+      ul.clean { margin: 0; padding-left: 1.1rem; }
+      .badge { display: inline-block; padding: 5px 10px; border-radius: 999px; background: #e7f3ef; color: var(--accent); font-weight: 700; font-size: 0.82rem; }
+      .footer-note { margin-top: 26px; padding: 16px; border-left: 4px solid var(--accent); background: #f0f7f4; color: var(--ink); }
+      .muted { color: var(--muted); }
+      .pre-card { white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88rem; line-height: 1.45; }
+      .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+      .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+      .links-grid a { text-decoration: none; color: var(--accent-2); font-weight: bold; }
+      .body-content { margin-top: 20px; }
+      .grid { display: grid; gap: 16px; margin-top: 20px; }
+      .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+      .flow .box { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 14px; text-align: center; font-weight: bold; }
+    </style>
+  </head>
+  <body class="">
+    <div class="page-wrap">
+      <section class="hero">
+        <div class="kicker">Traceability</div>
+        <h1>Data Lineage — NTX-101</h1>
+        <p>End-to-end asset traceability from raw source layers through harmonized, synthetic, and analysis-ready outputs.</p>
+        <div class="nav">
+          
+          <a href="../final_report/index.html">Integrated report</a>
+          
+          <a href="../program_overview/index.html">Program overview</a>
+          
+          <a href="../data_lineage/index.html">Data lineage</a>
+          
+          <a href="../model_cards/index.html">Model review</a>
+          
+          <a href="../phase1/index.html">Phase I</a>
+          
+          <a href="../phase2/index.html">Phase II</a>
+          
+          <a href="../phase3/index.html">Phase III</a>
+          
+        </div>
+      </section>
+      <div class="body-content">
+        
+  <div class="card">
+    <h2 class="section-title">Asset lineage register</h2>
+    <table>
+      <thead><tr><th>Layer</th><th>Asset</th><th>Path</th><th>Notes</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>adae.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/adae.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>adlbc.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/adlbc.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>adlbh.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/adlbh.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>adsl.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/adsl.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>adtte.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/adtte.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>advs.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/advs.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>ae.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/ae.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>dm.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/dm.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>ds.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/ds.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>ex.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/ex.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>lb.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/lb.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>raw_external</td>
+          <td>vs.xpt</td>
+          <td>data/external/cdisc_pilot/raw_xpt/vs.xpt</td>
+          <td>immutable source</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>adae.parquet</td>
+          <td>data/interim/cdisc_pilot/adae.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>adlbc.parquet</td>
+          <td>data/interim/cdisc_pilot/adlbc.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>adlbh.parquet</td>
+          <td>data/interim/cdisc_pilot/adlbh.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>adsl.parquet</td>
+          <td>data/interim/cdisc_pilot/adsl.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>adtte.parquet</td>
+          <td>data/interim/cdisc_pilot/adtte.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>advs.parquet</td>
+          <td>data/interim/cdisc_pilot/advs.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>ae.parquet</td>
+          <td>data/interim/cdisc_pilot/ae.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>dm.parquet</td>
+          <td>data/interim/cdisc_pilot/dm.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>ds.parquet</td>
+          <td>data/interim/cdisc_pilot/ds.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>ex.parquet</td>
+          <td>data/interim/cdisc_pilot/ex.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>lb.parquet</td>
+          <td>data/interim/cdisc_pilot/lb.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>interim</td>
+          <td>vs.parquet</td>
+          <td>data/interim/cdisc_pilot/vs.parquet</td>
+          <td>normalized parquet</td>
+        </tr>
+        
+        <tr>
+          <td>harmonized</td>
+          <td>ae.parquet</td>
+          <td>data/derived/sdtm_alz/ae.parquet</td>
+          <td>sdtm-like harmonized</td>
+        </tr>
+        
+        <tr>
+          <td>harmonized</td>
+          <td>dm.parquet</td>
+          <td>data/derived/sdtm_alz/dm.parquet</td>
+          <td>sdtm-like harmonized</td>
+        </tr>
+        
+        <tr>
+          <td>harmonized</td>
+          <td>ds.parquet</td>
+          <td>data/derived/sdtm_alz/ds.parquet</td>
+          <td>sdtm-like harmonized</td>
+        </tr>
+        
+        <tr>
+          <td>harmonized</td>
+          <td>ex.parquet</td>
+          <td>data/derived/sdtm_alz/ex.parquet</td>
+          <td>sdtm-like harmonized</td>
+        </tr>
+        
+        <tr>
+          <td>harmonized</td>
+          <td>lb.parquet</td>
+          <td>data/derived/sdtm_alz/lb.parquet</td>
+          <td>sdtm-like harmonized</td>
+        </tr>
+        
+        <tr>
+          <td>harmonized</td>
+          <td>vs.parquet</td>
+          <td>data/derived/sdtm_alz/vs.parquet</td>
+          <td>sdtm-like harmonized</td>
+        </tr>
+        
+        <tr>
+          <td>synthetic_bridge</td>
+          <td>efficacy_long.parquet</td>
+          <td>data/generated/alz_program/efficacy_long.parquet</td>
+          <td>public continuity bridge</td>
+        </tr>
+        
+        <tr>
+          <td>synthetic_bridge</td>
+          <td>event_outcomes.parquet</td>
+          <td>data/generated/alz_program/event_outcomes.parquet</td>
+          <td>public continuity bridge</td>
+        </tr>
+        
+        <tr>
+          <td>synthetic_bridge</td>
+          <td>phase_assignments.parquet</td>
+          <td>data/generated/alz_program/phase_assignments.parquet</td>
+          <td>public continuity bridge</td>
+        </tr>
+        
+        <tr>
+          <td>synthetic_bridge</td>
+          <td>subject_master.parquet</td>
+          <td>data/generated/alz_program/subject_master.parquet</td>
+          <td>public continuity bridge</td>
+        </tr>
+        
+        <tr>
+          <td>synthetic_bridge</td>
+          <td>visit_schedule.parquet</td>
+          <td>data/generated/alz_program/visit_schedule.parquet</td>
+          <td>public continuity bridge</td>
+        </tr>
+        
+        <tr>
+          <td>derived_adam_like</td>
+          <td>adae.parquet</td>
+          <td>data/derived/adam_like/alz_program/adae.parquet</td>
+          <td>analysis-ready outputs</td>
+        </tr>
+        
+        <tr>
+          <td>derived_adam_like</td>
+          <td>adeff.parquet</td>
+          <td>data/derived/adam_like/alz_program/adeff.parquet</td>
+          <td>analysis-ready outputs</td>
+        </tr>
+        
+        <tr>
+          <td>derived_adam_like</td>
+          <td>adlb.parquet</td>
+          <td>data/derived/adam_like/alz_program/adlb.parquet</td>
+          <td>analysis-ready outputs</td>
+        </tr>
+        
+        <tr>
+          <td>derived_adam_like</td>
+          <td>adsl.parquet</td>
+          <td>data/derived/adam_like/alz_program/adsl.parquet</td>
+          <td>analysis-ready outputs</td>
+        </tr>
+        
+        <tr>
+          <td>derived_adam_like</td>
+          <td>adtte.parquet</td>
+          <td>data/derived/adam_like/alz_program/adtte.parquet</td>
+          <td>analysis-ready outputs</td>
+        </tr>
+        
+        <tr>
+          <td>derived_adam_like</td>
+          <td>advs.parquet</td>
+          <td>data/derived/adam_like/alz_program/advs.parquet</td>
+          <td>analysis-ready outputs</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+      </div>
+      <div class="footer-note">
+        <strong>Disclaimer:</strong> This review includes analyses derived from a combination of publicly available structural source data and documented synthetic continuity extensions for the fictional NTX-101 program. It is intended for internal methodological demonstration only and is not intended for external publication, regulatory submission, or treatment decision-making.
+      </div>
+    </div>
+  </body>
+</html>

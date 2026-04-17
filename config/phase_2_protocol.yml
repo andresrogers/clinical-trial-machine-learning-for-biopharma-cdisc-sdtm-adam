@@ -1,0 +1,27 @@
+study_id: ALZ-XM-201
+phase: phase_2
+objective: proof_of_concept_signal_with_responder_logic
+
+primary_endpoint:
+  name: ADAS_COG11_change_from_baseline_week_24
+  timepoint_week: 24
+  direction: lower_is_better
+
+responder_rule:
+  expression: change_from_baseline_lte_minus_3_and_no_early_safety_discontinuation_before_week_12
+  threshold_change_from_baseline: -3
+  no_safety_discontinuation_before_week: 12
+
+visits_weeks:
+  - 0
+  - 4
+  - 8
+  - 12
+  - 18
+  - 24
+
+subgroup_fields:
+  - age_band
+  - sex
+  - baseline_severity
+  - apoe4_proxy

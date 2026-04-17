@@ -1,0 +1,28 @@
+study_id: ALZ-XM-101
+phase: phase_1
+objective: safety_tolerability_labs_vitals_ae_profile
+
+population:
+  target: mild_to_moderate_alzheimers_dementia
+  inclusion_summary:
+    - age_50_to_90
+    - probable_alzheimers_diagnosis
+    - baseline_cognitive_impairment_present
+
+arms:
+  - placebo
+  - xanomeline_low
+  - xanomeline_high
+
+visits:
+  - screening
+  - baseline
+  - day_7
+  - day_14
+  - day_28
+  - follow_up
+
+gate_categories:
+  - go
+  - hold
+  - stop

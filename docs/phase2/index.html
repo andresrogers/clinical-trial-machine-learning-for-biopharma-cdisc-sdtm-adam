@@ -1,0 +1,266 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Phase II Endpoint and Model Review — NTX-101</title>
+    <style>
+      :root {
+        --ink: #18324a;
+        --muted: #5b6b7d;
+        --accent: #0a7f62;
+        --accent-2: #1f4e79;
+        --bg: #f5f8fb;
+        --card: #ffffff;
+        --border: #d9e2ec;
+        --hero-a: #11324d;
+        --hero-b: #1d567f;
+        --hero-c: #1a7d6a;
+      }
+      body { font-family: Arial, sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+      .page-wrap { max-width: 1180px; margin: 0 auto; padding: 28px; }
+      .hero { background: linear-gradient(135deg, var(--hero-a), var(--hero-b) 62%, var(--hero-c)); color: white; padding: 30px 32px; border-radius: 18px; box-shadow: 0 10px 28px rgba(17, 50, 77, 0.18); }
+      .hero .kicker { display: inline-block; margin-bottom: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.74rem; font-weight: 700; opacity: 0.88; }
+      .hero h1 { margin: 0 0 10px; font-size: 2rem; }
+      .hero p { margin: 0; max-width: 900px; line-height: 1.55; }
+      .nav { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+      .nav a { color: white; text-decoration: none; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; font-size: 0.92rem; }
+      .section-title { margin: 28px 0 12px; font-size: 1.25rem; }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 6px 18px rgba(20, 38, 58, 0.05); margin-top: 16px; }
+      .card.compact { padding: 14px 16px; }
+      .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px; }
+      .metric-label { color: var(--muted); font-size: 0.88rem; }
+      .metric-value { margin-top: 8px; font-size: 1.25rem; font-weight: 700; }
+      table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; }
+      th, td { padding: 11px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; font-size: 0.93rem; }
+      th { background: #edf3f9; }
+      img { max-width: 100%; border-radius: 12px; border: 1px solid var(--border); background: white; }
+      ul.clean { margin: 0; padding-left: 1.1rem; }
+      .badge { display: inline-block; padding: 5px 10px; border-radius: 999px; background: #e7f3ef; color: var(--accent); font-weight: 700; font-size: 0.82rem; }
+      .footer-note { margin-top: 26px; padding: 16px; border-left: 4px solid var(--accent); background: #f0f7f4; color: var(--ink); }
+      .muted { color: var(--muted); }
+      .pre-card { white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88rem; line-height: 1.45; }
+      .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+      .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+      .links-grid a { text-decoration: none; color: var(--accent-2); font-weight: bold; }
+      .body-content { margin-top: 20px; }
+      .grid { display: grid; gap: 16px; margin-top: 20px; }
+      .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+      .flow .box { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 14px; text-align: center; font-weight: bold; }
+      .metric-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+      .metric-table th { text-align: left; padding: 10px 12px; color: var(--muted); font-weight: 700; width: 40%; background: transparent; border-bottom: 1px solid var(--border); }
+      .metric-table td { padding: 10px 12px; text-align: left; font-weight: 700; border-bottom: 1px solid var(--border); }
+      .metric-table thead th { background: #f3f7fb; font-size: 0.95rem; color: var(--muted); }
+      .metric-table td .muted { font-weight: 400; color: var(--muted); }
+      /* Lightbox / modal gallery styles */
+      .gallery-link img { cursor: zoom-in; transition: transform 160ms ease; }
+      .gallery-link img:hover { transform: scale(1.02); }
+      .lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(10,15,20,0.6); z-index: 1200; }
+      .lightbox.open { display: flex; }
+      .lightbox .lb-inner { position: relative; max-width: 92%; max-height: 92%; display: flex; align-items: center; }
+      .lightbox .lb-img { max-width: 100%; max-height: 80vh; border-radius: 10px; box-shadow: 0 10px 40px rgba(10,20,30,0.5); background: white; }
+      .lightbox .lb-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.95); border: none; width: 46px; height: 46px; border-radius: 999px; font-size: 22px; cursor: pointer; color: var(--hero-a); box-shadow: 0 6px 18px rgba(20,38,58,0.08); }
+      .lightbox .lb-prev { left: -56px; }
+      .lightbox .lb-next { right: -56px; }
+      .lightbox .lb-close { position: absolute; right: -8px; top: -8px; width: 36px; height: 36px; border-radius: 50%; background: white; font-size: 18px; }
+      @media (max-width:640px){ .lightbox .lb-prev, .lightbox .lb-next { display: none; } .lightbox .lb-close { right: 8px; top: 8px; } }
+    </style>
+  </head>
+  <body class="">
+    <div class="page-wrap">
+      <section class="hero">
+        <div class="kicker">Phase II</div>
+        <h1>Phase II Endpoint and Model Review — NTX-101</h1>
+        <p>Week 24 efficacy, responder analysis, and benchmarked predictive modeling for NTX-101 proof-of-concept evaluation.</p>
+        <div class="nav">
+          
+          <a href="../final_report/index.html">Integrated report</a>
+          
+          <a href="../program_overview/index.html">Program overview</a>
+          
+          <a href="../data_lineage/index.html">Data lineage</a>
+          
+          <a href="../model_cards/index.html">Model review</a>
+          
+          <a href="../phase1/index.html">Phase I</a>
+          
+          <a href="../phase2/index.html">Phase II</a>
+          
+          <a href="../phase3/index.html">Phase III</a>
+          
+        </div>
+      </section>
+      <div class="body-content">
+        
+  <p><span class="badge">Gate Decision: GO</span></p>
+
+  <div class="card">
+    <h2 class="section-title">Primary model metrics</h2>
+    <table class="metric-table">
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><th class="metric">Threshold</th><td class="value">0.494</td></tr>
+        <tr><th class="metric">ROC AUC</th><td class="value">0.867</td></tr>
+        <tr><th class="metric">PR AUC</th><td class="value">0.845</td></tr>
+        <tr><th class="metric">Brier</th><td class="value">0.145</td></tr>
+        <tr><th class="metric">Sensitivity</th><td class="value">0.806</td></tr>
+        <tr><th class="metric">Specificity</th><td class="value">0.75</td></tr>
+        <tr><th class="metric">PPV</th><td class="value">0.758</td></tr>
+        <tr><th class="metric">NPV</th><td class="value">0.8</td></tr>
+        <tr><th class="metric">F1</th><td class="value">0.781</td></tr>
+        <tr><th class="metric">N (test)</th><td class="value">63</td></tr>
+        <tr><th class="metric">Responder diff (pp)</th><td class="value">19.073</td></tr>
+        <tr><th class="metric">Gate decision</th><td class="value"><span class="badge">GO</span></td></tr>
+        <tr><th class="metric">Primary model</th><td class="value">logistic_regression</td></tr>
+        <tr><th class="metric">Primary endpoint p-value</th><td class="value">0.0019</td></tr>
+        <tr><th class="metric">Threshold rationale</th><td class="value"><span class="muted">Training ROC threshold maximizing specificity with sensitivity ≥ 0.78</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Responder rates by arm</h2>
+    <table>
+      <thead><tr><th>Treatment</th><th>Responder rate (%)</th></tr></thead>
+      <tbody>
+        
+        <tr><td>ntx101_high</td><td>57.534</td></tr>
+        
+        <tr><td>ntx101_low</td><td>50.725</td></tr>
+        
+        <tr><td>placebo</td><td>38.462</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Hypothesis testing summary</h2>
+    <table>
+      <thead><tr><th>Comparison</th><th>Mean difference</th><th>t-statistic</th><th>p-value</th><th>Approx CI</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td>ntx101_low vs placebo</td>
+          <td>-0.188</td>
+          <td>-2.142</td>
+          <td>0.034</td>
+          <td>[-0.313, -0.064]</td>
+        </tr>
+        
+        <tr>
+          <td>ntx101_high vs placebo</td>
+          <td>-0.266</td>
+          <td>-3.526</td>
+          <td>0.0006</td>
+          <td>[-0.355, -0.178]</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Benchmark models</h2>
+    <table>
+      <thead><tr><th>Model</th><th>ROC AUC</th><th>PR AUC</th><th>Brier</th><th>F1</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td>logistic_regression</td>
+          <td>0.868</td>
+          <td>0.845</td>
+          <td>0.145</td>
+          <td>0.781</td>
+        </tr>
+        
+        <tr>
+          <td>elastic_net</td>
+          <td>0.867</td>
+          <td>0.845</td>
+          <td>0.146</td>
+          <td>0.794</td>
+        </tr>
+        
+        <tr>
+          <td>random_forest</td>
+          <td>0.838</td>
+          <td>0.849</td>
+          <td>0.173</td>
+          <td>0.75</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title">Figures</h2>
+  <div class="gallery">
+    
+    <div class="card compact"><a href="#" class="gallery-link" data-index="0"><img src="../../artifacts/phase2/figures/longitudinal_change.png" alt="longitudinal change" /></a></div>
+    
+    <div class="card compact"><a href="#" class="gallery-link" data-index="1"><img src="../../artifacts/phase2/figures/calibration.png" alt="calibration" /></a></div>
+    
+    <div class="card compact"><a href="#" class="gallery-link" data-index="2"><img src="../../artifacts/phase2/figures/feature_coefficients.png" alt="feature coefficients" /></a></div>
+    
+    <div class="card compact"><a href="#" class="gallery-link" data-index="3"><img src="../../artifacts/phase2/figures/model_benchmark_auc.png" alt="model benchmark auc" /></a></div>
+    
+  </div>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lb-inner" role="dialog" aria-modal="true">
+      <button class="lb-btn lb-prev" aria-label="Previous">‹</button>
+      <img class="lb-img" src="" alt="" />
+      <button class="lb-btn lb-next" aria-label="Next">›</button>
+      <button class="lb-close" aria-label="Close">×</button>
+    </div>
+  </div>
+
+    <script>
+    (function(){
+      const links = Array.from(document.querySelectorAll('.gallery-link'));
+      const lightbox = document.getElementById('lightbox');
+      const lbImg = lightbox.querySelector('.lb-img');
+      const btnPrev = lightbox.querySelector('.lb-prev');
+      const btnNext = lightbox.querySelector('.lb-next');
+      const btnClose = lightbox.querySelector('.lb-close');
+      const imgs = links.map(a => {
+        const img = a.querySelector('img');
+        return { src: img.src, alt: img.alt };
+      });
+      let current = 0;
+      function open(index){
+        current = (index + imgs.length) % imgs.length;
+        lbImg.src = imgs[current].src;
+        lbImg.alt = imgs[current].alt || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+      }
+      function close(){
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden','true');
+        lbImg.src = '';
+      }
+      function prev(){ open(current-1); }
+      function next(){ open(current+1); }
+      links.forEach((a,i)=> a.addEventListener('click', function(ev){ ev.preventDefault(); open(i); }));
+      btnPrev.addEventListener('click', function(e){ e.stopPropagation(); prev(); });
+      btnNext.addEventListener('click', function(e){ e.stopPropagation(); next(); });
+      btnClose.addEventListener('click', function(e){ e.stopPropagation(); close(); });
+      lightbox.addEventListener('click', function(e){ if(e.target === lightbox) close(); });
+      document.addEventListener('keydown', function(e){ if(lightbox.classList.contains('open')){
+        if(e.key === 'Escape') close();
+        if(e.key === 'ArrowLeft') prev();
+        if(e.key === 'ArrowRight') next();
+      }});
+    })();
+    </script>
+
+      </div>
+      <div class="footer-note">
+        <strong>Disclaimer:</strong> This review includes analyses derived from a combination of publicly available structural source data and documented synthetic continuity extensions for the fictional NTX-101 program. It is intended for internal methodological demonstration only and is not intended for external publication, regulatory submission, or treatment decision-making.
+      </div>
+    </div>
+  </body>
+</html>

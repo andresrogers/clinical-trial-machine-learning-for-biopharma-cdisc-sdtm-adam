@@ -1,0 +1,25 @@
+version: 1
+layer: harmonized_sdtm
+required_common_columns:
+  - program_id
+  - phase_label
+  - source_study_id
+  - source_usubjid
+  - treatment_arm
+datasets:
+  dm:
+    required_columns: [program_id, source_study_id, source_usubjid, treatment_arm, age, sex]
+  ae:
+    required_columns: [program_id, source_study_id, source_usubjid, treatment_arm, aeterm]
+  lb:
+    required_columns: [program_id, source_study_id, source_usubjid, treatment_arm, lbtestcd]
+  vs:
+    required_columns: [program_id, source_study_id, source_usubjid, treatment_arm, vstestcd]
+  ex:
+    required_columns: [program_id, source_study_id, source_usubjid, treatment_arm]
+  ds:
+    required_columns: [program_id, source_study_id, source_usubjid, treatment_arm, dsdecod]
+  mh:
+    required_columns: [program_id, source_study_id, source_usubjid]
+  qs:
+    required_columns: [program_id, source_study_id, source_usubjid]

@@ -1,0 +1,4 @@
+{% from "_page_shell.html.j2" import render_page_shell %}
+{% call render_page_shell(page_title, page_kicker, page_subtitle, nav, disclaimer) %}
+  <div class="card pre-card">{{ model_card_text }}</div>
+{% endcall %}

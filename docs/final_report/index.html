@@ -1,0 +1,392 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Integrated Clinical Development Review — NTX-101</title>
+    <style>
+      :root {
+        --ink: #18324a;
+        --muted: #5b6b7d;
+        --accent: #0a7f62;
+        --accent-2: #1f4e79;
+        --bg: #f5f8fb;
+        --card: #ffffff;
+        --border: #d9e2ec;
+        --hero-a: #11324d;
+        --hero-b: #1d567f;
+        --hero-c: #1a7d6a;
+      }
+      body { font-family: Arial, sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+      .page-wrap { max-width: 1180px; margin: 0 auto; padding: 28px; }
+      .hero { background: linear-gradient(135deg, var(--hero-a), var(--hero-b) 62%, var(--hero-c)); color: white; padding: 30px 32px; border-radius: 18px; box-shadow: 0 10px 28px rgba(17, 50, 77, 0.18); }
+      .hero .kicker { display: inline-block; margin-bottom: 10px; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.74rem; font-weight: 700; opacity: 0.88; }
+      .hero h1 { margin: 0 0 10px; font-size: 2rem; }
+      .hero p { margin: 0; max-width: 900px; line-height: 1.55; }
+      .nav { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+      .nav a { color: white; text-decoration: none; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; font-size: 0.92rem; }
+      .section-title { margin: 28px 0 12px; font-size: 1.25rem; }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: 0 6px 18px rgba(20, 38, 58, 0.05); margin-top: 16px; }
+      .card.compact { padding: 14px 16px; }
+      .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px; }
+      .metric-label { color: var(--muted); font-size: 0.88rem; }
+      .metric-value { margin-top: 8px; font-size: 1.25rem; font-weight: 700; }
+      table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; }
+      th, td { padding: 11px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; font-size: 0.93rem; }
+      th { background: #edf3f9; }
+      img { max-width: 100%; border-radius: 12px; border: 1px solid var(--border); background: white; }
+      ul.clean { margin: 0; padding-left: 1.1rem; }
+      .badge { display: inline-block; padding: 5px 10px; border-radius: 999px; background: #e7f3ef; color: var(--accent); font-weight: 700; font-size: 0.82rem; }
+      .footer-note { margin-top: 26px; padding: 16px; border-left: 4px solid var(--accent); background: #f0f7f4; color: var(--ink); }
+      .muted { color: var(--muted); }
+      .pre-card { white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.88rem; line-height: 1.45; }
+      .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+      .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+      .links-grid a { text-decoration: none; color: var(--accent-2); font-weight: bold; }
+      .body-content { margin-top: 20px; }
+      .grid { display: grid; gap: 16px; margin-top: 20px; }
+      .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+      .flow .box { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 14px; text-align: center; font-weight: bold; }
+      .metric-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+      .metric-table th { text-align: left; padding: 10px 12px; color: var(--muted); font-weight: 700; width: 40%; background: transparent; border-bottom: 1px solid var(--border); }
+      .metric-table td { padding: 10px 12px; text-align: left; font-weight: 700; border-bottom: 1px solid var(--border); }
+      .metric-table thead th { background: #f3f7fb; font-size: 0.95rem; color: var(--muted); }
+      .metric-table td .muted { font-weight: 400; color: var(--muted); }
+      /* Lightbox / modal gallery styles */
+      .gallery-link img { cursor: zoom-in; transition: transform 160ms ease; }
+      .gallery-link img:hover { transform: scale(1.02); }
+      .lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(10,15,20,0.6); z-index: 1200; }
+      .lightbox.open { display: flex; }
+      .lightbox .lb-inner { position: relative; max-width: 92%; max-height: 92%; display: flex; align-items: center; }
+      .lightbox .lb-img { max-width: 100%; max-height: 80vh; border-radius: 10px; box-shadow: 0 10px 40px rgba(10,20,30,0.5); background: white; }
+      .lightbox .lb-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.95); border: none; width: 46px; height: 46px; border-radius: 999px; font-size: 22px; cursor: pointer; color: var(--hero-a); box-shadow: 0 6px 18px rgba(20,38,58,0.08); }
+      .lightbox .lb-prev { left: -56px; }
+      .lightbox .lb-next { right: -56px; }
+      .lightbox .lb-close { position: absolute; right: -8px; top: -8px; width: 36px; height: 36px; border-radius: 50%; background: white; font-size: 18px; }
+      @media (max-width:640px){ .lightbox .lb-prev, .lightbox .lb-next { display: none; } .lightbox .lb-close { right: 8px; top: 8px; } }
+    </style>
+  </head>
+  <body class="">
+    <div class="page-wrap">
+      <section class="hero">
+        <div class="kicker">Clinical Development Review</div>
+        <h1>Integrated Clinical Development Review — NTX-101</h1>
+        <p>Integrated cross-phase evidence package for NTX-101 in mild-to-moderate Alzheimer's dementia.</p>
+        <div class="nav">
+          
+          <a href="../final_report/index.html">Integrated report</a>
+          
+          <a href="../program_overview/index.html">Program overview</a>
+          
+          <a href="../data_lineage/index.html">Data lineage</a>
+          
+          <a href="../model_cards/index.html">Model review</a>
+          
+          <a href="../phase1/index.html">Phase I</a>
+          
+          <a href="../phase2/index.html">Phase II</a>
+          
+          <a href="../phase3/index.html">Phase III</a>
+          
+        </div>
+      </section>
+      <div class="body-content">
+        
+      <div class="metric-grid">
+        
+        <div class="card compact">
+          <div class="metric-label">Program</div>
+          <div class="metric-value">NTX-101 / NTX-101</div>
+        </div>
+        
+        <div class="card compact">
+          <div class="metric-label">Raw backbone</div>
+          <div class="metric-value">12 XPT domains + 32 SafetyData exports</div>
+        </div>
+        
+        <div class="card compact">
+          <div class="metric-label">Analysis layer</div>
+          <div class="metric-value">6 ADaM-like datasets</div>
+        </div>
+        
+        <div class="card compact">
+          <div class="metric-label">ML result</div>
+          <div class="metric-value">Phase II ROC AUC 0.868</div>
+        </div>
+        
+      </div>
+
+      <h2 class="section-title">Executive conclusion</h2>
+      <div class="card">
+        <p>
+          The integrated review presents a coherent development path: <strong>Phase I GO</strong> based on manageable safety findings,
+          <strong>Phase II GO</strong> supported by directional efficacy with formal treatment-vs-placebo testing, and <strong>Phase III GO</strong>
+          based on superiority-style time-to-event evidence with dose-consistent treatment effect.
+        </p>
+        <p>
+          Importantly, the asset under study is <strong>NTX-101</strong>, a fictional investigational therapy inspired by public source structure.
+        </p>
+      </div>
+
+      <h2 class="section-title">Biopharma operating model reflected in the repo</h2>
+      <div class="flow">
+        <div class="box">Immutable raw inputs<br><span class="muted">XPT / RDA</span></div>
+        <div class="box">Normalized working layer<br><span class="muted">interim parquet</span></div>
+        <div class="box">Standards-aware harmonization<br><span class="muted">SDTM-like</span></div>
+        <div class="box">Bridged development continuity<br><span class="muted">synthetic, documented</span></div>
+        <div class="box">Analysis-ready datasets<br><span class="muted">ADaM-like</span></div>
+        <div class="box">Phase gates & memos<br><span class="muted">decision-facing outputs</span></div>
+      </div>
+
+      <h2 class="section-title">Source strategy and standards posture</h2>
+      <table>
+        <thead>
+          <tr><th>Source</th><th>Role</th><th>Coverage</th><th>Industry relevance</th></tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>CDISC Pilot XPT</strong></td>
+            <td>Core public structural backbone</td>
+            <td>DM, AE, LB, VS, EX, DS plus ADaM-like examples</td>
+            <td>Sponsor-style submission structure and standards vocabulary</td>
+          </tr>
+          
+          <tr>
+            <td><strong>SafetyData RDA</strong></td>
+            <td>Supplemental safety and standards reference</td>
+            <td>32 exported parquet datasets</td>
+            <td>Additional clinical programming realism and R interoperability</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Synthetic continuity bridge</strong></td>
+            <td>Phase continuity and endpoint completion</td>
+            <td>Subject master, phase assignments, efficacy longitudinal, event outcomes</td>
+            <td>Provides a continuous clinical program narrative where public source coverage is incomplete</td>
+          </tr>
+          
+          <tr>
+            <td><strong>Thin R reference layer</strong></td>
+            <td>Standards-facing cross-check</td>
+            <td>Reference ADSL/ADAE derivations and row-count comparisons</td>
+            <td>Provides an independent cross-check of selected derivations against an alternate standards-facing workflow</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Key metrics and formal evidence snapshot</h2>
+      <div class="grid" style="grid-template-columns: 1.1fr 1fr; align-items: start;">
+        <div class="card">
+          <table>
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Phase I gate</td><td>GO</td></tr>
+              <tr><td>Phase II gate</td><td>GO</td></tr>
+              <tr><td>Phase II primary model</td><td>logistic_regression</td></tr>
+              <tr><td>Phase II ROC AUC</td><td>0.868</td></tr>
+              <tr><td>Phase II responder uplift</td><td>19.07 pp</td></tr>
+              <tr><td>Phase II primary endpoint p-value</td><td>0.0019</td></tr>
+              <tr><td>Phase III median delay to worsening</td><td>83.58 days</td></tr>
+              <tr><td>Phase III log-rank p-value</td><td>0.0421</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <p>
+            The inferential layer includes treatment comparisons, p-values, confidence interval summaries, benchmark model comparison,
+            and a documented primary model choice to support cross-functional development review.
+          </p>
+          <p>
+            The predictive modeling package remains interpretable, clinically contextualized, and anchored to a prespecified threshold rationale.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Methodology</h2>
+      <table>
+        <thead><tr><th>Stage(s)</th><th>Focus</th><th>Conclusion</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Operating model, source inventory, ingestion</td>
+            <td>Program contract frozen; 12 XPT domains and 32 SafetyData exports normalized to parquet.</td>
+          </tr>
+          
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Contracts, harmonization, continuity bridge</td>
+            <td>Schema validation added; harmonization preserved row counts across 6 core domains; synthetic bridge created 306 subject-level records and 163 Phase III event records.</td>
+          </tr>
+          
+          <tr>
+            <td><strong>3</strong></td>
+            <td>ADaM-like layer and R reference</td>
+            <td>ADSL/ADAE/ADLB/ADVS/ADEFF/ADTTE produced; R reference comparisons showed row deltas of 0 for ADSL and 0 for ADAE.</td>
+          </tr>
+          
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Phase I early development review</td>
+            <td>Gate = GO. Phase I now supports progression with manageable on-treatment safety burden, no treatment-related death imbalance, and explicit statistical comparison versus placebo retained in the report.</td>
+          </tr>
+          
+          <tr>
+            <td><strong>5</strong></td>
+            <td>Phase II endpoint and interpretable ML</td>
+            <td>Gate = GO. Week 24 responder separation was kept in a more plausible advancement range (difference = 19.07 pp) while the primary logistic model was tuned to a clinically justified threshold and good discrimination.</td>
+          </tr>
+          
+          <tr>
+            <td><strong>6</strong></td>
+            <td>Phase III confirmatory review</td>
+            <td>Formal Kaplan-Meier, log-rank, and Cox-model analyses support superiority-style interpretation with hazard ratio control below 1.0 and dose-consistent treatment effect.</td>
+          </tr>
+          
+          <tr>
+            <td><strong>7</strong></td>
+            <td>Report and final QC</td>
+            <td>Static review package, lineage manifest, final validation report, and completed stage tracker delivered; 13 tracked stages marked complete.</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Harmonization and QC snapshot</h2>
+      <table>
+        <thead><tr><th>Domain</th><th>Input rows</th><th>Output rows</th><th>Delta</th></tr></thead>
+        <tbody>
+          
+          <tr>
+            <td>dm</td>
+            <td>306</td>
+            <td>306</td>
+            <td>0</td>
+          </tr>
+          
+          <tr>
+            <td>ae</td>
+            <td>1191</td>
+            <td>1191</td>
+            <td>0</td>
+          </tr>
+          
+          <tr>
+            <td>lb</td>
+            <td>59580</td>
+            <td>59580</td>
+            <td>0</td>
+          </tr>
+          
+          <tr>
+            <td>vs</td>
+            <td>29643</td>
+            <td>29643</td>
+            <td>0</td>
+          </tr>
+          
+          <tr>
+            <td>ex</td>
+            <td>591</td>
+            <td>591</td>
+            <td>0</td>
+          </tr>
+          
+          <tr>
+            <td>ds</td>
+            <td>596</td>
+            <td>596</td>
+            <td>0</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Visual snapshots</h2>
+      <div class="gallery">
+        <div class="card">
+          <h3>Phase I safety review</h3>
+          <a href="#" class="gallery-link" data-index="0"><img src="../../artifacts/phase1/figures/ae_incidence.png" alt="Phase I AE incidence" /></a>
+          <p class="muted">Reframed as a sponsor-style safety graphic with ordered arms and restrained executive palette.</p>
+        </div>
+        <div class="card">
+          <h3>Phase II efficacy and ML</h3>
+          <a href="#" class="gallery-link" data-index="1"><img src="../../artifacts/phase2/figures/model_benchmark_auc.png" alt="Phase II benchmark models" /></a>
+          <p class="muted">Benchmarking supports conservative model selection while keeping logistic regression primary for interpretability.</p>
+        </div>
+        <div class="card">
+          <h3>Phase III confirmatory view</h3>
+          <a href="#" class="gallery-link" data-index="2"><img src="../../artifacts/phase3/figures/km_time_to_worsening.png" alt="Phase III KM curve" /></a>
+          <p class="muted">Left-to-right time-to-event display with arm-specific curves and executive-style visual treatment.</p>
+        </div>
+      </div>
+
+      <!-- Lightbox modal -->
+      <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lb-inner" role="dialog" aria-modal="true">
+          <button class="lb-btn lb-prev" aria-label="Previous">‹</button>
+          <img class="lb-img" src="" alt="" />
+          <button class="lb-btn lb-next" aria-label="Next">›</button>
+          <button class="lb-close" aria-label="Close">×</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Open the main artifacts</h2>
+      <div class="links-grid">
+        <div class="card"><a href="../phase1/index.html">Phase I safety review</a><p class="muted">Safety thresholds, AE rate comparison, and early development gate.</p></div>
+        <div class="card"><a href="../phase2/index.html">Phase II endpoint and ML review</a><p class="muted">Hypothesis testing, responder logic, benchmarks, calibration, and model card.</p></div>
+        <div class="card"><a href="../phase3/index.html">Phase III confirmatory review</a><p class="muted">KM view, time-to-worsening test, safety integration, and final recommendation.</p></div>
+        <div class="card"><a href="../data_lineage/index.html">Data lineage page</a><p class="muted">Raw -> interim -> harmonized -> synthetic -> derived traceability.</p></div>
+        <div class="card"><a href="../model_cards/index.html">Model card page</a><p class="muted">Inputs, exclusions, leakage controls, metrics, and limitations.</p></div>
+      </div>
+
+    <script>
+    (function(){
+      const links = Array.from(document.querySelectorAll('.gallery-link'));
+      const lightbox = document.getElementById('lightbox');
+      if(!lightbox) return;
+      const lbImg = lightbox.querySelector('.lb-img');
+      const btnPrev = lightbox.querySelector('.lb-prev');
+      const btnNext = lightbox.querySelector('.lb-next');
+      const btnClose = lightbox.querySelector('.lb-close');
+      const imgs = links.map(a => {
+        const img = a.querySelector('img');
+        return { src: img.src, alt: img.alt };
+      });
+      let current = 0;
+      function open(index){
+        current = (index + imgs.length) % imgs.length;
+        lbImg.src = imgs[current].src;
+        lbImg.alt = imgs[current].alt || '';
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+      }
+      function close(){
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden','true');
+        lbImg.src = '';
+      }
+      function prev(){ open(current-1); }
+      function next(){ open(current+1); }
+      links.forEach((a,i)=> a.addEventListener('click', function(ev){ ev.preventDefault(); open(i); }));
+      btnPrev.addEventListener('click', function(e){ e.stopPropagation(); prev(); });
+      btnNext.addEventListener('click', function(e){ e.stopPropagation(); next(); });
+      btnClose.addEventListener('click', function(e){ e.stopPropagation(); close(); });
+      lightbox.addEventListener('click', function(e){ if(e.target === lightbox) close(); });
+      document.addEventListener('keydown', function(e){ if(lightbox.classList.contains('open')){
+        if(e.key === 'Escape') close();
+        if(e.key === 'ArrowLeft') prev();
+        if(e.key === 'ArrowRight') next();
+      }});
+    })();
+    </script>
+
+      </div>
+      <div class="footer-note">
+        <strong>Disclaimer:</strong> This review includes analyses derived from a combination of publicly available structural source data and documented synthetic continuity extensions for the fictional NTX-101 program. It is intended for internal methodological demonstration only and is not intended for external publication, regulatory submission, or treatment decision-making.
+      </div>
+    </div>
+  </body>
+</html>

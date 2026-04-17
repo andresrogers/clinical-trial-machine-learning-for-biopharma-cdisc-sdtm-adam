@@ -1,0 +1,22 @@
+study_id: ALZ-XM-301
+phase: phase_3
+objective: confirmatory_endpoint_time_to_clinical_worsening
+
+primary_endpoint:
+  name: time_to_clinical_worsening
+  unit: days
+
+event_definition:
+  - confirmed_cognitive_worsening
+  - protocol_defined_lack_of_efficacy_discontinuation
+
+follow_up:
+  max_week: 52
+  visits_weeks:
+    - 0
+    - 4
+    - 8
+    - 12
+    - 24
+    - 36
+    - 52
