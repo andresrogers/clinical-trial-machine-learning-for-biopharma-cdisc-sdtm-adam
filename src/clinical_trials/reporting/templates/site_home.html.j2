@@ -1,0 +1,9 @@
+{% from "_page_shell.html.j2" import render_page_shell %}
+{% call render_page_shell(page_title, page_kicker, page_subtitle, nav, disclaimer) %}
+  <div class="metric-grid">
+    <div class="card compact"><div class="metric-label">Program focus</div><div class="metric-value">NTX-101 / Mild-to-moderate Alzheimer's dementia</div></div>
+    <div class="card compact"><div class="metric-label">Integrated assets</div><div class="metric-value">{{ lineage_count }}</div></div>
+    <div class="card compact"><div class="metric-label">Decision sequence</div><div class="metric-value">Phase I GO → Phase II GO → Phase III GO</div></div>
+    <div class="card compact"><div class="metric-label">Primary review package</div><div class="metric-value"><a href="{{ final_report_href }}">Open integrated report</a></div></div>
+  </div>
+{% endcall %}

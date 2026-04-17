@@ -1,0 +1,44 @@
+{% from "_page_shell.html.j2" import render_page_shell %}
+{% call render_page_shell(page_title, page_kicker, page_subtitle, nav, disclaimer) %}
+  <div class="card compact">
+    <h2 class="section-title">Kaplan-Meier view</h2>
+    <img src="{{ km_figure }}" alt="KM plot" />
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Event summary by arm</h2>
+    <table>
+      <thead><tr><th>Arm</th><th>Subjects</th><th>Events</th><th>Median time (days)</th></tr></thead>
+      <tbody>
+        {% for row in event_rows %}
+        <tr>
+          <td>{{ row.trt01a }}</td>
+          <td>{{ row.subjects }}</td>
+          <td>{{ row.events }}</td>
+          <td>{{ row.median_time_days }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Hypothesis summary</h2>
+    <table>
+      <thead><tr><th>Comparison</th><th>Hazard ratio</th><th>95% CI</th><th>Log-rank p-value</th><th>Median delay (days)</th><th>High dose p</th><th>Low dose p</th></tr></thead>
+      <tbody>
+        {% for row in hypothesis_rows %}
+        <tr>
+          <td>{{ row.comparison }}</td>
+          <td>{{ row.hazard_ratio }}</td>
+          <td>[{{ row.hr_ci_low }}, {{ row.hr_ci_high }}]</td>
+          <td>{{ row.logrank_p_value }}</td>
+          <td>{{ row.median_delay_days }}</td>
+          <td>{{ row.high_dose_logrank_p_value }}</td>
+          <td>{{ row.low_dose_logrank_p_value }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endcall %}

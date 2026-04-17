@@ -1,0 +1,68 @@
+{% from "_page_shell.html.j2" import render_page_shell %}
+{% call render_page_shell(page_title, page_kicker, page_subtitle, nav, disclaimer) %}
+  <p><span class="badge">Gate Decision: {{ decision }}</span></p>
+
+  <div class="card">
+    <h2 class="section-title">Primary model metrics</h2>
+    <ul class="clean">
+      {% for key, value in metrics.items() %}
+      <li>{{ key }}: {{ value }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Responder rates by arm</h2>
+    <table>
+      <thead><tr><th>Treatment</th><th>Responder rate (%)</th></tr></thead>
+      <tbody>
+        {% for row in responder_rows %}
+        <tr><td>{{ row.treatment_arm }}</td><td>{{ row.response_rate_pct }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Hypothesis testing summary</h2>
+    <table>
+      <thead><tr><th>Comparison</th><th>Mean difference</th><th>t-statistic</th><th>p-value</th><th>Approx CI</th></tr></thead>
+      <tbody>
+        {% for row in hypothesis_rows %}
+        <tr>
+          <td>{{ row.comparison }}</td>
+          <td>{{ row.mean_difference_chg }}</td>
+          <td>{{ row.t_statistic }}</td>
+          <td>{{ row.p_value }}</td>
+          <td>[{{ row.approx_ci_low }}, {{ row.approx_ci_high }}]</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Benchmark models</h2>
+    <table>
+      <thead><tr><th>Model</th><th>ROC AUC</th><th>PR AUC</th><th>Brier</th><th>F1</th></tr></thead>
+      <tbody>
+        {% for row in benchmark_rows %}
+        <tr>
+          <td>{{ row.model }}</td>
+          <td>{{ row.roc_auc }}</td>
+          <td>{{ row.pr_auc }}</td>
+          <td>{{ row.brier }}</td>
+          <td>{{ row.f1 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title">Figures</h2>
+  <div class="gallery">
+    {% for fig in figure_paths %}
+    <div class="card compact"><img src="{{ fig }}" alt="phase 2 figure" /></div>
+    {% endfor %}
+  </div>
+{% endcall %}

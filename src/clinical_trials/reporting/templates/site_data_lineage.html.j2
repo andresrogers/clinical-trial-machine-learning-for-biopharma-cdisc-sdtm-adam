@@ -1,0 +1,19 @@
+{% from "_page_shell.html.j2" import render_page_shell %}
+{% call render_page_shell(page_title, page_kicker, page_subtitle, nav, disclaimer) %}
+  <div class="card">
+    <h2 class="section-title">Asset lineage register</h2>
+    <table>
+      <thead><tr><th>Layer</th><th>Asset</th><th>Path</th><th>Notes</th></tr></thead>
+      <tbody>
+        {% for row in lineage_rows %}
+        <tr>
+          <td>{{ row.layer }}</td>
+          <td>{{ row.asset }}</td>
+          <td>{{ row.path }}</td>
+          <td>{{ row.notes }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endcall %}

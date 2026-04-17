@@ -1,0 +1,68 @@
+{% from "_page_shell.html.j2" import render_page_shell %}
+{% call render_page_shell(page_title, page_kicker, page_subtitle, nav, disclaimer) %}
+  <p><span class="badge">Gate Decision: {{ decision }}</span></p>
+
+  <div class="card">
+    <h2 class="section-title">Key safety metrics</h2>
+    <ul class="clean">
+      <li>AE rate difference vs placebo (pp): {{ metrics.ae_rate_diff_pp }}</li>
+      <li>Any AE p-value: {{ metrics.ae_rate_pvalue }}</li>
+      <li>Active any-AE rate (%): {{ metrics.active_ae_rate_pct }}</li>
+      <li>Placebo any-AE rate (%): {{ metrics.placebo_ae_rate_pct }}</li>
+      <li>Serious AE rate difference vs placebo (pp): {{ metrics.serious_ae_rate_diff_pp }}</li>
+      <li>Serious AE p-value: {{ metrics.serious_ae_rate_pvalue }}</li>
+      <li>Active serious-AE rate (%): {{ metrics.active_serious_ae_rate_pct }}</li>
+      <li>Placebo serious-AE rate (%): {{ metrics.placebo_serious_ae_rate_pct }}</li>
+      <li>Critical lab cluster: {{ metrics.critical_lab_cluster }}</li>
+      <li>Treatment-related death imbalance: {{ metrics.treatment_related_death_imbalance }}</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Population summary</h2>
+    <table>
+      <thead><tr><th>Treatment</th><th>Subjects</th><th>Mean age</th></tr></thead>
+      <tbody>
+        {% for row in population_table %}
+        <tr><td>{{ row.trt01a }}</td><td>{{ row.subjects }}</td><td>{{ row.mean_age }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">AE incidence</h2>
+    <table>
+      <thead><tr><th>Treatment</th><th>N subjects</th><th>Subjects with AE</th><th>AE rate (%)</th></tr></thead>
+      <tbody>
+        {% for row in ae_table %}
+        <tr>
+          <td>{{ row.trt01a }}</td>
+          <td>{{ row.n_subjects }}</td>
+          <td>{{ row.subjects_with_ae }}</td>
+          <td>{{ row.ae_rate_pct }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2 class="section-title">Statistical checks</h2>
+    <table>
+      <thead><tr><th>Comparison</th><th>Statistic</th><th>p-value</th></tr></thead>
+      <tbody>
+        {% for row in stats_table %}
+        <tr><td>{{ row.comparison }}</td><td>{{ row.statistic }}</td><td>{{ row.p_value }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="section-title">Figures</h2>
+  <div class="gallery">
+    {% for fig in figure_paths %}
+    <div class="card compact"><img src="{{ fig }}" alt="phase 1 figure" /></div>
+    {% endfor %}
+  </div>
+{% endcall %}

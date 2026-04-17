@@ -1,0 +1,135 @@
+{% from "_page_shell.html.j2" import render_page_shell %}
+{% call render_page_shell(page_title, page_kicker, page_subtitle, nav, disclaimer) %}
+      <div class="metric-grid">
+        {% for item in highlights %}
+        <div class="card compact">
+          <div class="metric-label">{{ item.label }}</div>
+          <div class="metric-value">{{ item.value }}</div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <h2 class="section-title">Executive conclusion</h2>
+      <div class="card">
+        <p>
+          The integrated review presents a coherent development path: <strong>Phase I GO</strong> based on manageable safety findings,
+          <strong>Phase II GO</strong> supported by directional efficacy with formal treatment-vs-placebo testing, and <strong>Phase III GO</strong>
+          based on superiority-style time-to-event evidence with dose-consistent treatment effect.
+        </p>
+        <p>
+          Importantly, the asset under study is <strong>NTX-101</strong>, a fictional investigational therapy inspired by public source structure.
+        </p>
+      </div>
+
+      <h2 class="section-title">Biopharma operating model reflected in the repo</h2>
+      <div class="flow">
+        <div class="box">Immutable raw inputs<br><span class="muted">XPT / RDA</span></div>
+        <div class="box">Normalized working layer<br><span class="muted">interim parquet</span></div>
+        <div class="box">Standards-aware harmonization<br><span class="muted">SDTM-like</span></div>
+        <div class="box">Bridged development continuity<br><span class="muted">synthetic, documented</span></div>
+        <div class="box">Analysis-ready datasets<br><span class="muted">ADaM-like</span></div>
+        <div class="box">Phase gates & memos<br><span class="muted">decision-facing outputs</span></div>
+      </div>
+
+      <h2 class="section-title">Source strategy and standards posture</h2>
+      <table>
+        <thead>
+          <tr><th>Source</th><th>Role</th><th>Coverage</th><th>Industry relevance</th></tr>
+        </thead>
+        <tbody>
+          {% for row in source_rows %}
+          <tr>
+            <td><strong>{{ row.source }}</strong></td>
+            <td>{{ row.role }}</td>
+            <td>{{ row.coverage }}</td>
+            <td>{{ row.industry_value }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Key metrics and formal evidence snapshot</h2>
+      <div class="grid" style="grid-template-columns: 1.1fr 1fr; align-items: start;">
+        <div class="card">
+          <table>
+            <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>Phase I gate</td><td>{{ key_metrics.phase1_gate }}</td></tr>
+              <tr><td>Phase II gate</td><td>{{ key_metrics.phase2_gate }}</td></tr>
+              <tr><td>Phase II primary model</td><td>{{ key_metrics.phase2_primary_model }}</td></tr>
+              <tr><td>Phase II ROC AUC</td><td>{{ key_metrics.phase2_auc }}</td></tr>
+              <tr><td>Phase II responder uplift</td><td>{{ key_metrics.phase2_responder_diff }}</td></tr>
+              <tr><td>Phase II primary endpoint p-value</td><td>{{ key_metrics.phase2_endpoint_pvalue }}</td></tr>
+              <tr><td>Phase III median delay to worsening</td><td>{{ key_metrics.phase3_tte_diff }}</td></tr>
+              <tr><td>Phase III log-rank p-value</td><td>{{ key_metrics.phase3_pvalue }}</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <p>
+            The inferential layer includes treatment comparisons, p-values, confidence interval summaries, benchmark model comparison,
+            and a documented primary model choice to support cross-functional development review.
+          </p>
+          <p>
+            The predictive modeling package remains interpretable, clinically contextualized, and anchored to a prespecified threshold rationale.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Methodology</h2>
+      <table>
+        <thead><tr><th>Stage(s)</th><th>Focus</th><th>Conclusion</th></tr></thead>
+        <tbody>
+          {% for row in stage_rows %}
+          <tr>
+            <td><strong>{{ row.stage }}</strong></td>
+            <td>{{ row.focus }}</td>
+            <td>{{ row.conclusion }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Harmonization and QC snapshot</h2>
+      <table>
+        <thead><tr><th>Domain</th><th>Input rows</th><th>Output rows</th><th>Delta</th></tr></thead>
+        <tbody>
+          {% for row in harmonization_rows %}
+          <tr>
+            <td>{{ row.domain }}</td>
+            <td>{{ row.input_rows }}</td>
+            <td>{{ row.output_rows }}</td>
+            <td>{{ row.row_delta }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2 class="section-title">Visual snapshots</h2>
+      <div class="gallery">
+        <div class="card">
+          <h3>Phase I safety review</h3>
+          <img src="{{ figure_paths.phase1 }}" alt="Phase I AE incidence" />
+          <p class="muted">Reframed as a sponsor-style safety graphic with ordered arms and restrained executive palette.</p>
+        </div>
+        <div class="card">
+          <h3>Phase II efficacy and ML</h3>
+          <img src="{{ figure_paths.phase2 }}" alt="Phase II benchmark models" />
+          <p class="muted">Benchmarking supports conservative model selection while keeping logistic regression primary for interpretability.</p>
+        </div>
+        <div class="card">
+          <h3>Phase III confirmatory view</h3>
+          <img src="{{ figure_paths.phase3 }}" alt="Phase III KM curve" />
+          <p class="muted">Left-to-right time-to-event display with arm-specific curves and executive-style visual treatment.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Open the main artifacts</h2>
+      <div class="links-grid">
+        <div class="card"><a href="{{ links.phase1 }}">Phase I safety review</a><p class="muted">Safety thresholds, AE rate comparison, and early development gate.</p></div>
+        <div class="card"><a href="{{ links.phase2 }}">Phase II endpoint and ML review</a><p class="muted">Hypothesis testing, responder logic, benchmarks, calibration, and model card.</p></div>
+        <div class="card"><a href="{{ links.phase3 }}">Phase III confirmatory review</a><p class="muted">KM view, time-to-worsening test, safety integration, and final recommendation.</p></div>
+        <div class="card"><a href="{{ links.lineage }}">Data lineage page</a><p class="muted">Raw -> interim -> harmonized -> synthetic -> derived traceability.</p></div>
+        <div class="card"><a href="{{ links.model_card }}">Model card page</a><p class="muted">Inputs, exclusions, leakage controls, metrics, and limitations.</p></div>
+      </div>
+{% endcall %}

@@ -1,0 +1,19 @@
+{% from "_page_shell.html.j2" import render_page_shell %}
+{% call render_page_shell(page_title, page_kicker, page_subtitle, nav, disclaimer) %}
+  <div class="card">
+    <h2 class="section-title">Phase architecture</h2>
+    <ul class="clean">
+      <li><strong>Phase I:</strong> early safety and tolerability review focused on adverse events, laboratory change, and vital-sign surveillance.</li>
+      <li><strong>Phase II:</strong> proof-of-concept efficacy review centered on Week 24 ADAS-Cog11 change from baseline and responder analysis.</li>
+      <li><strong>Phase III:</strong> confirmatory time-to-clinical-worsening analysis integrating survival modeling and safety context.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2 class="section-title">Operating model</h2>
+    <p>
+      The program package is organized around standards-aware source normalization, harmonized clinical domains,
+      analysis-ready derivations, and gated decision outputs intended to mirror a disciplined development review cycle.
+    </p>
+    <p><a href="{{ final_report_href }}">Open the integrated development review</a></p>
+  </div>
+{% endcall %}
